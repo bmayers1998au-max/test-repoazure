@@ -1,0 +1,1 @@
+defaultText = 'Your Apple Account has been locked Because of charged $149.00 for illegal Child pornography via Apple Pay. If you didn’t make this purchase, contact Apple Support immediately at +1 8779260802 to unlock your account and block this transaction. Act fast to prevent unauthorized charges.';
